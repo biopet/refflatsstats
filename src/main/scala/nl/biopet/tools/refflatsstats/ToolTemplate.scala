@@ -1,4 +1,4 @@
-package nl.biopet.tools.template
+package nl.biopet.tools.refflatsstats
 
 import nl.biopet.utils.tool.ToolCommand
 
