@@ -40,7 +40,8 @@ ExonOutput,tsv and IntronOutput.tsv.
 
 <p>
   <!-- Obscure e-mail address for spammers -->
-For any question related to this tool, please use the github issue tracker or contact
-  <a href='http://sasc.lumc.nl/'>the SASC team</a> directly at: <br>
-  &#115;&#97;&#115;&#99;&#32;&#91;&#97;&#116;&#93;&#32;&#108;&#117;&#109;&#99;&#32;&#91;&#100;&#111;&#116;&#93;&#32;&#110;&#108;
+For any question related to this tool, please use the github issue tracker or contact 
+  <a href='http://sasc.lumc.nl/'>the SASC team</a> directly at: <a href='&#109;&#97;&#105;&#108;&#116;&#111;&#58;
+ &#115;&#97;&#115;&#99;&#64;&#108;&#117;&#109;&#99;&#46;&#110;&#108;'>
+  &#115;&#97;&#115;&#99;&#64;&#108;&#117;&#109;&#99;&#46;&#110;&#108;</a>.
 </p>
