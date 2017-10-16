@@ -6,10 +6,10 @@ scalaVersion := "2.11.11"
 resolvers += Resolver.sonatypeRepo("snapshots")
 
 libraryDependencies += "com.github.broadinstitute" % "picard" %  "2.11.0"
-libraryDependencies += "com.github.biopet" %% "biopet-tool-utils" % "0.1.0-SNAPSHOT" changing()
-libraryDependencies += "com.github.biopet" %% "biopet-ngs-utils" % "0.1.0-SNAPSHOT" changing()
+libraryDependencies += "com.github.biopet" %% "biopet-tool-utils" % "0.1-SNAPTSHOT" changing()
+libraryDependencies += "com.github.biopet" %% "biopet-ngs-utils" % "0.1-SNAPTSHOT" changing()
 
-libraryDependencies += "com.github.biopet" %% "biopet-test-utils" % "0.1.0-SNAPSHOT" % Test changing()
+libraryDependencies += "com.github.biopet" %% "biopet-test-utils" % "0.1-SNAPTSHOT" % Test changing()
 
 mainClass in assembly := Some("nl.biopet.tools.refflatsstats.RefflatStats")
 
