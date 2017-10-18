@@ -3,7 +3,7 @@ package nl.biopet.tools.refflatsstats
 import java.io.{File, PrintWriter}
 
 import htsjdk.samtools.reference.IndexedFastaSequenceFile
-import nl.biopet.utils.ngs.FastaUtils
+import nl.biopet.utils.ngs.fasta
 import nl.biopet.utils.ngs.intervals.{BedRecord, BedRecordList}
 import nl.biopet.utils.tool.ToolCommand
 import picard.annotation.{Gene, GeneAnnotationReader}
@@ -39,7 +39,7 @@ object RefflatStats extends ToolCommand {
 
     val geneReader = GeneAnnotationReader.loadRefFlat(
       cmdArgs.refflatFile,
-      FastaUtils.getCachedDict(cmdArgs.referenceFasta))
+      fasta.getCachedDict(cmdArgs.referenceFasta))
 
     val futures = geneReader.getAll
       .map(generateGeneStats(_, cmdArgs.referenceFasta))
@@ -114,7 +114,7 @@ object RefflatStats extends ToolCommand {
       val start = List(gene.getStart, gene.getEnd).min
       val end = List(gene.getStart, gene.getEnd).max
       val gcCompleteGene =
-        FastaUtils.getSequenceGc(referenceFile, contig, start, end)
+        fasta.getSequenceGc(referenceFile, contig, start, end)
 
       val exons =
         geneToExonRegions(gene).distinct
@@ -137,7 +137,7 @@ object RefflatStats extends ToolCommand {
         val start = List(transcript.start(), transcript.end()).min
         val end = List(transcript.start(), transcript.end()).max
         val gcCompleteTranscript =
-          FastaUtils.getSequenceGc(referenceFile, contig, start, end)
+          fasta.getSequenceGc(referenceFile, contig, start, end)
 
         val exonRegions = transcriptToExonRegions(transcript)
         val intronRegions = transcriptToIntronRegions(transcript)
