@@ -16,7 +16,7 @@ import scala.collection.JavaConversions._
 /**
   * Created by pjvan_thof on 1-5-17.
   */
-object RefflatStats extends ToolCommand {
+object RefflatStats extends ToolCommand[Args] {
 
   /**
     * Program will prefix reads with a given seq
