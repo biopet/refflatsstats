@@ -8,6 +8,7 @@ import org.testng.annotations.Test
 import scala.io.Source
 
 class RefflatStatsTest extends ToolTest[Args] {
+  def toolCommand: RefflatStats.type = RefflatStats
   @Test
   def test(): Unit = {
     val geneOutput = File.createTempFile("gene.", ".tsv")
