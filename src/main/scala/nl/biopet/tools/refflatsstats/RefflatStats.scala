@@ -16,7 +16,11 @@ import scala.collection.JavaConversions._
 /**
   * Created by pjvan_thof on 1-5-17.
   */
-object RefflatStats extends ToolCommand {
+object RefflatStats extends ToolCommand[Args] {
+
+  def emptyArgs: Args = Args()
+  def argsParser = new ArgsParser(toolName)
+
 
   /**
     * Program will prefix reads with a given seq
@@ -24,9 +28,7 @@ object RefflatStats extends ToolCommand {
     * @param args the command line arguments
     */
   def main(args: Array[String]): Unit = {
-    val parser = new ArgsParser(toolName)
-    val cmdArgs =
-      parser.parse(args, Args()).getOrElse(throw new IllegalArgumentException)
+    val cmdArgs = cmdArrayToArgs(args)
 
     logger.info("Start")
 

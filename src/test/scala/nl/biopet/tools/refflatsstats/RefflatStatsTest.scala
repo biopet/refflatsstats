@@ -2,12 +2,13 @@ package nl.biopet.tools.refflatsstats
 
 import java.io.File
 
-import nl.biopet.test.BiopetTest
+import nl.biopet.utils.test.tools.ToolTest
 import org.testng.annotations.Test
 
 import scala.io.Source
 
-class RefflatStatsTest extends BiopetTest {
+class RefflatStatsTest extends ToolTest[Args] {
+  def toolCommand: RefflatStats.type = RefflatStats
   @Test
   def test(): Unit = {
     val geneOutput = File.createTempFile("gene.", ".tsv")
