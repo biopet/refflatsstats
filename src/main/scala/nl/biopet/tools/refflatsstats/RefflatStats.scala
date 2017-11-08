@@ -21,7 +21,6 @@ object RefflatStats extends ToolCommand[Args] {
   def emptyArgs: Args = Args()
   def argsParser = new ArgsParser(toolName)
 
-
   /**
     * Program will prefix reads with a given seq
     *
