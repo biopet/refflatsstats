@@ -19,7 +19,7 @@ import scala.collection.JavaConversions._
 object RefflatStats extends ToolCommand[Args] {
 
   def emptyArgs: Args = Args()
-  def argsParser = new ArgsParser(toolName)
+  def argsParser = new ArgsParser(this)
 
   /**
     * Program will prefix reads with a given seq
