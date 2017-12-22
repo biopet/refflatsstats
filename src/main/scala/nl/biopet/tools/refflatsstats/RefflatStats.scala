@@ -214,4 +214,39 @@ object RefflatStats extends ToolCommand[Args] {
     } else Nil
 
   }
+
+  def descriptionText: String =
+    s"""
+      |$toolName generates stats about an annotation refflat file.
+      |It outputs stats files on genes, transcripts, exons and introns.
+      |Information includes start,end information, GC content, number of
+      |exonic regions etc.
+    """.stripMargin
+
+  def manualText: String =
+    s"""
+    |$toolName requires the refflat file and an indexed reference fasta to run.
+    |If the reference is in `reference.fa` then a `reference.fai` and a
+    |`reference.dict` must also be present.
+    |
+  """.stripMargin
+
+  def exampleText: String =
+    s"""
+       | To output information on genes, transcripts, exons and introns:
+       |${example(
+         "-a",
+         "MouseAnnotation.refflat",
+         "-R",
+         "IndexedMouseReference.fa",
+         "-g",
+         "GeneOutput.tsv",
+         "-t",
+         "TranscriptOutput.tsv",
+         "-e",
+         "ExonOutput.tsv",
+         "-i",
+         "IntronOutput.tsv"
+       )}
+     """.stripMargin
 }
