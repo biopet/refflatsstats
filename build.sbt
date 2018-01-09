@@ -3,8 +3,8 @@ organizationName := "Sequencing Analysis Support Core - Leiden University Medica
 
 startYear := Some(2017)
 
-name := "refflatsstats"
-biopetUrlName := "RefflatStats"
+name := "RefflatStats"
+biopetUrlName := "refflatsstats"
 
 biopetIsTool := true
 
