@@ -50,6 +50,9 @@ object RefflatStats extends ToolCommand[Args] {
   def main(args: Array[String]): Unit = {
     val cmdArgs = cmdArrayToArgs(args)
 
+    require(!cmdArgs.referenceFasta.getName.endsWith(".gz"),
+            "Compressed reference files is not supported")
+
     logger.info("Start")
 
     //Sets picard logging level
