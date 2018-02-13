@@ -226,7 +226,8 @@ object RefflatStats extends ToolCommand[Args] {
     }).flatten.toList
   }
 
-  def transcriptToIntronRegions(transcript: Gene#Transcript): List[BedRecord] = {
+  def transcriptToIntronRegions(
+      transcript: Gene#Transcript): List[BedRecord] = {
     if (transcript.exons.length > 1) {
       (for (i <- 0 until (transcript.exons.length - 1)) yield {
         val intronStart = transcript.exons(i).end + 1
