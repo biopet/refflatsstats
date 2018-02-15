@@ -4,7 +4,7 @@ organizationName := "Biopet"
 startYear := Some(2017)
 
 name := "RefflatStats"
-biopetUrlName := "refflatsstats"
+biopetUrlName := "refflatstats"
 
 biopetIsTool := true
 
