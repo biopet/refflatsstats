@@ -19,7 +19,7 @@ developers += Developer(id = "rhpvorderman",
                         email = "r.h.p.vorderman@lumc.nl",
                         url = url("https://github.com/rhpvorderman"))
 
-scalaVersion := "2.11.11"
+scalaVersion := "2.11.12"
 
 libraryDependencies += "com.github.biopet" %% "tool-utils" % "0.3"
 libraryDependencies += "com.github.biopet" %% "tool-test-utils" % "0.2.1"
