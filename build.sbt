@@ -22,6 +22,6 @@ developers += Developer(id = "rhpvorderman",
 scalaVersion := "2.11.12"
 
 libraryDependencies += "com.github.biopet" %% "tool-utils" % "0.3.1"
-libraryDependencies += "com.github.biopet" %% "tool-test-utils" % "0.2.1" % Test
+libraryDependencies += "com.github.biopet" %% "tool-test-utils" % "0.2.2" % Test
 libraryDependencies += "com.github.biopet" %% "ngs-utils" % "0.3.1"
 libraryDependencies += "com.github.broadinstitute" % "picard" % "2.14.1"
