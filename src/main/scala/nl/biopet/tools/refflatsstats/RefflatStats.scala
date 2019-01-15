@@ -237,9 +237,70 @@ object RefflatStats extends ToolCommand[Args] {
 
   }
 
+  def descriptionText: String =
+    s"""
+      |$toolName generates stats about an annotation refflat file.
+      |It outputs stats files on genes, transcripts, exons and introns.
+      |Information includes start,end information, GC content, number of
+      |exonic regions etc.
+    """.stripMargin
+
+  def manualText: String =
+    s"""
+    |$toolName requires the refflat file and an indexed reference fasta to run.
+    |If the reference is in `reference.fa` then a `reference.fai` and a
+    |`reference.dict` must also be present.
+    |
+  """.stripMargin
+
+  def exampleText: String =
+    s"""
+       | To output information on genes, transcripts, exons and introns:
+       |${example(
+         "-a",
+         "MouseAnnotation.refflat",
+         "-R",
+         "IndexedMouseReference.fa",
+         "-g",
+         "GeneOutput.tsv",
+         "-t",
+         "TranscriptOutput.tsv",
+         "-e",
+         "ExonOutput.tsv",
+         "-i",
+         "IntronOutput.tsv"
+       )}
+     """.stripMargin
+
+  /*
+   * The following code was copied and converted into scala from Picard and modified to suite this
+   * programs needs:
+   * https://github.com/broadinstitute/picard/blob/master/src/main/java/picard/annotation/RefFlatReader.java
+   *
+   * The MIT License
+   *
+   * Copyright (c) 2011 The Broad Institute
+   *
+   * Permission is hereby granted, free of charge, to any person obtaining a copy
+   * of this software and associated documentation files (the "Software"), to deal
+   * in the Software without restriction, including without limitation the rights
+   * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+   * copies of the Software, and to permit persons to whom the Software is
+   * furnished to do so, subject to the following conditions:
+   *
+   * The above copyright notice and this permission notice shall be included in
+   * all copies or substantial portions of the Software.
+   *
+   * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+   * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+   * THE SOFTWARE.
+   */
+
   /**
-    * Copied and converted to scala from Picard:
-    * https://github.com/broadinstitute/picard/blob/master/src/main/java/picard/annotation/RefFlatReader.java
     * (the load() method)
     *
     * This method is used instead of the GeneAnnotationReader.loadRefFlat method from Picard,
@@ -290,9 +351,6 @@ object RefflatStats extends ToolCommand[Args] {
   }
 
   /**
-    * Copied and converted to scala from Picard:
-    * https://github.com/broadinstitute/picard/blob/master/src/main/java/picard/annotation/RefFlatReader.java
-    *
     * This method needed to be copied because it was private and, thus, couldn't be imported.
     *
     * This method constructs a Gene object from a set of refFlat rows.
@@ -327,13 +385,11 @@ object RefflatStats extends ToolCommand[Args] {
   }
 
   /**
-    * Copied and converted to scala from Picard:
-    * https://github.com/broadinstitute/picard/blob/master/src/main/java/picard/annotation/RefFlatReader.java
-    *
     * This method needed to be copied because it was private and, thus, couldn't be imported.
     *
     * This method constructs a Transcript object from a refFlat line, which gets added to gene.
     *
+    * Original comment:
     * Conversion from 0-based half-open to 1-based inclusive intervals is done here.
     */
   def makeTranscriptFromRefFlatLine(
@@ -372,39 +428,4 @@ object RefflatStats extends ToolCommand[Args] {
     })
     tx
   }
-
-  def descriptionText: String =
-    s"""
-      |$toolName generates stats about an annotation refflat file.
-      |It outputs stats files on genes, transcripts, exons and introns.
-      |Information includes start,end information, GC content, number of
-      |exonic regions etc.
-    """.stripMargin
-
-  def manualText: String =
-    s"""
-    |$toolName requires the refflat file and an indexed reference fasta to run.
-    |If the reference is in `reference.fa` then a `reference.fai` and a
-    |`reference.dict` must also be present.
-    |
-  """.stripMargin
-
-  def exampleText: String =
-    s"""
-       | To output information on genes, transcripts, exons and introns:
-       |${example(
-         "-a",
-         "MouseAnnotation.refflat",
-         "-R",
-         "IndexedMouseReference.fa",
-         "-g",
-         "GeneOutput.tsv",
-         "-t",
-         "TranscriptOutput.tsv",
-         "-e",
-         "ExonOutput.tsv",
-         "-i",
-         "IntronOutput.tsv"
-       )}
-     """.stripMargin
 }
