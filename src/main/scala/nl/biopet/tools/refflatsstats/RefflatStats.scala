@@ -60,7 +60,7 @@ object RefflatStats extends ToolCommand[Args] {
     logger.info("Reading refflat file")
 
     val futures =
-      RefFlatParser
+      RefflatParser
         .getGenes(cmdArgs.refflatFile,
                   fasta.getCachedDict(cmdArgs.referenceFasta))
         .map(generateGeneStats(_, cmdArgs.referenceFasta))

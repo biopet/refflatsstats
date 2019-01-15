@@ -38,7 +38,7 @@ import picard.util.TabbedTextFileWithHeaderParser
 
 import scala.collection.JavaConversions._
 
-object RefFlatParser {
+object RefflatParser {
 
   /**
     * (the load() method)

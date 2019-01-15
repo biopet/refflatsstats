@@ -18,6 +18,12 @@ developers += Developer(id = "rhpvorderman",
                         name = "Ruben Vorderman",
                         email = "r.h.p.vorderman@lumc.nl",
                         url = url("https://github.com/rhpvorderman"))
+developers += Developer(id = "DavyCats",
+                        name = "Davy Cats",
+                        email = "davycats.dc@gmail.com",
+                        url = url("https://github.com/DavyCats"))
+
+excludeFilter.in(headerSources) := HiddenFileFilter || "*RefflatParser.scala"
 
 scalaVersion := "2.11.12"
 
