@@ -274,7 +274,7 @@ object RefflatStats extends ToolCommand[Args] {
 
   /*
    * The following code was copied and converted into scala from Picard and modified to suite this
-   * programs needs:
+   * program's needs:
    * https://github.com/broadinstitute/picard/blob/master/src/main/java/picard/annotation/RefFlatReader.java
    *
    * The MIT License
