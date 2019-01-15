@@ -61,7 +61,11 @@ class RefflatStatsTest extends ToolTest[Args] {
     val lines = Source.fromFile(geneOutput).getLines().toList
 
     lines.head shouldBe "gene\tcontig\tstart\tend\ttotalGC\texonGc\tintronGc\tlength\texonLength"
-    lines(1) shouldBe "geneA\tchrQ\t201\t500\t0.49\t0.5\t0.47000000000000003\t300\t197"
-
+    lines should contain(
+      "geneA\tchrQ\t201\t500\t0.49\t0.5\t0.47000000000000003\t300\t197")
+    lines should contain(
+      "geneB\tchrQ\t201\t500\t0.49\t0.5\t0.47000000000000003\t300\t197")
+    lines should contain(
+      "geneC\tchrQ\t202\t500\t0.4882943143812709\t0.5\t0.47000000000000003\t299\t197")
   }
 }
