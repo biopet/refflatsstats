@@ -27,7 +27,7 @@ import htsjdk.samtools.reference.IndexedFastaSequenceFile
 import nl.biopet.utils.ngs.fasta
 import nl.biopet.utils.ngs.intervals.{BedRecord, BedRecordList}
 import nl.biopet.utils.tool.ToolCommand
-import picard.annotation.{Gene, GeneAnnotationReader}
+import picard.annotation.Gene
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration.Duration
@@ -59,13 +59,12 @@ object RefflatStats extends ToolCommand[Args] {
 
     logger.info("Reading refflat file")
 
-    val geneReader = GeneAnnotationReader.loadRefFlat(
-      cmdArgs.refflatFile,
-      fasta.getCachedDict(cmdArgs.referenceFasta))
+    val futures =
+      RefflatParser
+        .getGenes(cmdArgs.refflatFile,
+                  fasta.getCachedDict(cmdArgs.referenceFasta))
+        .map(generateGeneStats(_, cmdArgs.referenceFasta))
 
-    val futures = geneReader.getAll
-      .map(generateGeneStats(_, cmdArgs.referenceFasta))
-      .toList
     val totalGenes = futures.length
 
     logger.info(s"$totalGenes genes found in refflat file")
